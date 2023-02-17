@@ -2,18 +2,22 @@
 title: "(STAT 540) Lecture 5 Practice Problems"
 author: "Brandon Stychalska"
 date: "2023-02-07"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
 This is a report for ST540(001). Please go to the link: [ST540](https://oiraweb.ua.edu/apis/docs/api/v1/renderDocument/id/63d96c8f88c75d042fa8d7fd?contextId=20231016025)-Syllabus for the course information.
 
 > # *Data*
 
 #### *Question 1*
-Examine the data “mpg” in ggplot 2 by using some appropriate R functions.
+
+Examine the data "mpg" in ggplot 2 by using some appropriate R functions.
 
 ```{r, echo=FALSE}
 library(ggplot2)
@@ -30,7 +34,8 @@ summary(mpg)
 #### *Question 2*
 
 ## R Markdown
-Check the column names of “mpg” by using colnames().
+
+Check the column names of "mpg" by using colnames().
 
 ```{r}
 colnames(mpg)
@@ -39,6 +44,7 @@ colnames(mpg)
 > # *Relationship between vaiables*
 
 #### *Question 3*
+
 Use a scatterplot to explore the relationship between fuel economy (highway miles per gallon) and engine size (engine displacement).
 
 ```{r}
@@ -46,10 +52,10 @@ ggplot(mpg, aes(x=displ, y=hwy))+geom_point()+
   xlab("Engine displacement")+ylab("Highway driving (mpg)")
 ```
 
-* The plot shows a strong negative correlation: as the engine size gets bigger, the fuel economy gets worse. There are also some outliers. (Some cars with large engines get higher fuel economy than average.)
-
+-   The plot shows a strong negative correlation: as the engine size gets bigger, the fuel economy gets worse. There are also some outliers. (Some cars with large engines get higher fuel economy than average.)
 
 #### *Question 4*
+
 Explore the three-way relationship between fuel economy (highway miles per gallon), engine size (engine displacement) and number of cylinders by creating multiple scatterplots of fuel economy against engine size by number of cylinders.
 
 ```{r}
@@ -57,11 +63,7 @@ ggplot(mpg, aes(x=displ, y=hwy))+geom_point()+facet_wrap(~cyl)+
   xlab("Engine displacement")+ylab("Highway driving (mpg)")
 ```
 
-* Unlike the scatterplot in Question 3, there is no indication of a strong negative correlation between engine size and fuel economy when the number of cylinders is fixed. Specifically,
+-   Unlike the scatter plot in Question 3, there is no indication of a strong negative correlation between engine size and fuel economy when the number of cylinders is fixed. Specifically,
 
-  + This plot shows a correlation between the engine size and the number of cylinders: cars with large engines have more cylinders.
-  + The number of cylinders can also explain the fuel economy: cars with more cylinders tend to have worse fuel economy.
-
-
-
-
+    -   This plot shows a correlation between the engine size and the number of cylinders: cars with large engines have more cylinders.
+    -   The number of cylinders can also explain the fuel economy: cars with more cylinders tend to have worse fuel economy.
